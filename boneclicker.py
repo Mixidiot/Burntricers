@@ -17,12 +17,12 @@ def openbank():
 	topleft = pyautogui.locateOnScreen('images\\naviicon_rslogo.png')
 	botright = pyautogui.locateOnScreen('images\\naviicon_music.png')
 	print('finding banker')
-	bankerPos = [topleft[0] + (0.005*(rand.random()-0.5)+0.52)*(botright[0] - topleft[0]), topleft[1] + (0.005*(rand.random()-0.5)+0.38)*(botright[1] - topleft[1])]
+	bankerPos = [topleft[0] + (0.005*(rand.random()-0.5)+0.52)*(botright[0] - topleft[0]), topleft[1] + (0.005*(rand.random()-0.5)+0.39)*(botright[1] - topleft[1])]
 	somechaos()
 	pyautogui.moveTo(bankerPos[0], bankerPos[1], duration=0.5+rand.random())
 	time.sleep(rand.random()/100)
 	pyautogui.click(button='right')
-	somechaos()
+	
 	print('finding menu')
 	popupPos = pyautogui.locateOnScreen('images\\navitext_bankbanker.png')
 	pyautogui.moveTo(popupPos[0]+rand.random()*popupPos[2], popupPos[1]+rand.random()*popupPos[3], duration=rand.random())
@@ -60,7 +60,8 @@ def bank_withdraw(item, num):
 	
 def burybones():
 	print('finding bones')
-	loc = pyautogui.locateAllOnScreen('images\\inventory_bones.png')
+	loc = pyautogui.locateAllOnScreen('images\\inventory_bigbones.png')
+
 	for pos in loc:
 		somechaos()
 		print('burying bones')
@@ -75,7 +76,7 @@ def burybones():
 
 	
 
-for i in range(3):
+for i in range(30):
 	burybones()
 	bank_withdraw('bankinventory_bigbones', 30)
 	burybones()
